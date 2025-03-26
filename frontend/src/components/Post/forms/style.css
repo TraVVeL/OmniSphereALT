@@ -1,0 +1,153 @@
+/* FIXME: */
+/* THIS HAS TO BE FIXED */
+/* THESE STYLES NOT PROPERLY WORKING  */
+
+/* DARK THEME WORKS SO-SO */
+/* LIGHT THEME IS PRETTY SHITTY  */
+
+
+milkdown-slash-menu {
+    display: none;
+}
+
+.milkdown .ProseMirror {
+    padding: 60px 80px;
+}
+
+
+.milkdown {
+    --crepe-color-background: var(--bs-body-bg);
+    --crepe-color-on-background: var(--bs-emphasis-color);
+    --crepe-color-surface: var(--bs-tertiary-bg);;
+    --crepe-color-surface-low: var(--bs-body-bg);
+    --crepe-color-on-surface: var(--bs-emphasis-color);
+    --crepe-color-on-surface-variant: var(--bs-dark-text-emphasis);
+    --crepe-color-outline: #757575;
+    --crepe-color-primary: #b5b5b5;
+    --crepe-color-secondary: #4d4d4d;
+    --crepe-color-on-secondary: #d6d6d6;
+    --crepe-color-inverse: #e5e5e5;
+    --crepe-color-on-inverse: #2a2a2a;
+    --crepe-color-inline-code: var(--bs-danger);
+    --crepe-color-error: var(--bs-danger);
+    --crepe-color-hover: var(--bs-tertiary-bg);
+    --crepe-color-selected: var(--bs-border-color-translucent);
+    --crepe-color-inline-area: var(--bs-border-color);
+    
+
+    --crepe-font-title: var(--bs-font-sans-serif); /* Шрифт для заголовков */
+    --crepe-font-default: var(--bs-font-sans-serif); /* Шрифт по умолчанию */
+    --crepe-font-code: var(--bs-font-monospace); /* Шрифт для кода */
+    --crepe-shadow-1: var(--bs-box-shadow-sm);
+    --crepe-shadow-2: var(--bs-box-shadow);
+    
+}
+
+
+
+/* BOOTSTRAP 5 */
+
+.milkdown .ProseMirror h1 {
+    font-size: calc(1.375rem + 1.5vw);
+    line-height: 1.2;
+    font-weight: 500;
+}
+
+
+
+/* .ͼo .cm-activeLineGutter {
+    background-color: var(--bs-border-color-translucent);
+}
+
+.ͼo .cm-gutters {
+    color: var(--bs-gray);
+}
+
+.ͼo {
+    color: var(--bs-dark-text-emphasis);
+}
+
+.ͼo.cm-focused > .cm-scroller > .cm-selectionLayer .cm-selectionBackground, .ͼo .cm-selectionBackground, .ͼo .cm-content ::selection {
+    background-color: var(--bs-border-color-translucent);
+}
+
+.milkdown milkdown-code-block .list-wrapper {
+    background: var(--bs-body-bg);
+    border-radius: 12px;
+    box-shadow: var(--bs-box-shadow-sm);
+    width: 240px;
+    padding-top: 12px;
+}
+
+.milkdown milkdown-code-block .language-list-item:hover {
+    background: var(--bs-tertiary-bg);
+} */
+
+
+/* .milkdown milkdown-code-block .tools .language-button:hover {
+    background: var(--bs-border-color-translucent);
+} */
+
+/* .milkdown milkdown-code-block .tools .language-button {
+    background: var(--bs-border-color-translucent);
+    color: var(--bs-dark-text-emphasis);
+}
+ */
+
+
+
+
+
+
+/* .milkdown {
+    --crepe-color-background: var(--bs-body-bg);
+    --crepe-color-on-background: var(--bs-body-color);
+    --crepe-color-surface: var(--bs-tertiary-bg);
+    --crepe-color-surface-low: var(--bs-secondary-bg);
+    --crepe-color-on-surface: var(--bs-body-color);
+    --crepe-color-on-surface-variant: var(--bs-secondary-color);
+    --crepe-color-outline: var(--bs-border-color);
+    --crepe-color-primary: var(--bs-primary);
+    --crepe-color-secondary: var(--bs-secondary);
+    --crepe-color-on-secondary: var(--bs-secondary-color);
+    --crepe-color-inverse: var(--bs-body-bg);
+    --crepe-color-on-inverse: var(--bs-body-color);
+    --crepe-color-inline-code: var(--bs-danger);
+    --crepe-color-error: var(--bs-danger);
+    --crepe-color-hover: var(--bs-hover-bg);
+    --crepe-color-selected: var(--bs-tertiary-bg);
+    --crepe-color-inline-area: var(--bs-secondary-bg);
+    --crepe-font-title: var(--bs-font-serif);
+    --crepe-font-default: var(--bs-font-sans-serif);
+    --crepe-font-code: var(--bs-font-monospace);
+    --crepe-shadow-1: var(--bs-box-shadow-sm);
+    --crepe-shadow-2: var(--bs-box-shadow);
+} */
+
+
+
+/* 
+.milkdown {
+    --crepe-color-background: #ffffff;
+    --crepe-color-on-background: #000000;
+    --crepe-color-surface: #f7f7f7;
+    --crepe-color-surface-low: #ededed;
+    --crepe-color-on-surface: #1c1c1c;
+    --crepe-color-on-surface-variant: #4d4d4d;
+    --crepe-color-outline: #a8a8a8;
+    --crepe-color-primary: #333333;
+    --crepe-color-secondary: #cfcfcf;
+    --crepe-color-on-secondary: #000000;
+    --crepe-color-inverse: #f0f0f0;
+    --crepe-color-on-inverse: #1a1a1a;
+    --crepe-color-inline-code: #ba1a1a;
+    --crepe-color-error: #ba1a1a;
+    --crepe-color-hover: #e0e0e0;
+    --crepe-color-selected: #d5d5d5;
+    --crepe-color-inline-area: #cacaca;
+    --crepe-font-title: 'Noto Serif', Cambria, 'Times New Roman', Times, serif;
+    --crepe-font-default: 'Noto Sans', Arial, Helvetica, sans-serif;
+    --crepe-font-code: 'Space Mono', Fira Code, Menlo, Monaco, 'Courier New', Courier, monospace;
+    --crepe-shadow-1: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+    --crepe-shadow-2: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+} */

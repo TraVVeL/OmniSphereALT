@@ -1,0 +1,115 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-24 10:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\app\email_confirmation.py:14
+msgid "your_code_confirmation"
+msgstr "Your confirmation code to change your password"
+
+#: .\app\email_confirmation.py:19
+msgid "welcome"
+msgstr "Hello"
+
+#: .\app\email_confirmation.py:22
+msgid "text_code_is_valid_for_a_short_amount_time"
+msgstr ""
+"This code is valid for 10 minutes. If you have not requested this code, just "
+"ignore this e-mail."
+
+#: .\app\email_confirmation.py:23
+msgid "rights_reserved"
+msgstr "2024 OmniSphere. All rights reserved."
+
+#: .\app\serializers\auth.py:20
+#| msgid "Both fields are required."
+msgid "This field is required."
+msgstr "Both fields are required"
+
+#: .\app\serializers\auth.py:22
+#| msgid "email_is_already_in_use"
+msgid "Email is already in use."
+msgstr "Email is already in use"
+
+#: .\app\serializers\auth.py:40
+msgid "Both fields are required."
+msgstr "Both fields are required"
+
+#: .\app\serializers\auth.py:44
+msgid "Invalid email or password."
+msgstr "Invalid email or password"
+
+#: .\app\serializers\auth.py:69
+msgid "User with this email does not exist."
+msgstr "User with this email does not exist"
+
+#: .\app\serializers\auth.py:73
+msgid "Confirmation code not found."
+msgstr "Confirmation code not found."
+
+#: .\app\serializers\auth.py:76
+msgid "The confirmation code has expired."
+msgstr "The confirmation code has expired"
+
+#: .\app\serializers\auth.py:79
+msgid "Verification code does not match."
+msgstr "Verification code does not match"
+
+#: .\app\serializers\auth.py:82 .\app\serializers\update_account.py:54
+msgid "New password cannot be the same as the old password."
+msgstr "New password cannot be the same as the old password"
+
+#: .\app\serializers\update_account.py:30
+#| msgid "email_is_already_in_use"
+msgid "This email is already in use."
+msgstr "Email is already in use"
+
+#: .\app\serializers\update_account.py:57
+msgid "Incorrect current password."
+msgstr "Incorrect current password."
+
+#: .\app\views\auth.py:97
+msgid "Confirmation code sent to your email"
+msgstr "Confirmation code sent to your email"
+
+#: .\app\views\auth.py:101
+msgid "User with this email does not exist"
+msgstr "User with this email does not exist"
+
+#: .\app\views\update_account.py:37
+msgid "Your account has been updated!"
+msgstr "Your account has been updated!"
+
+#: .\app\views\update_account.py:63
+msgid "Your password has been changed successfully!"
+msgstr "Your password has been changed successfully!"
+
+#: .\app\views\update_account.py:81
+msgid "User profile was not found"
+msgstr "User profile was not found"
+
+#: .\app\views\update_account.py:112
+msgid "You don't have permission to access this profile"
+msgstr "You don't have permission to access this profile"
+
+#~| msgid "account_updated_successfully"
+#~ msgid "profile_updated_successfully"
+#~ msgstr "Profile updated successfully!"
+
+#~| msgid "account_updated_successfully"
+#~ msgid "Profile updated successfully!"
+#~ msgstr "Profile updated successfully!"

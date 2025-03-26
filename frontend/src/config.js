@@ -1,0 +1,13 @@
+const BACKEND_URL = process.env.REACT_BACKEND_URL;
+const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
+const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+const TELEGRAM_BOT_NAME = process.env.TELEGRAM_BOT_NAME;
+const TELEGRAM_BOT_ID = process.env.TELEGRAM_BOT_ID;
+
+export {
+    BACKEND_URL,
+    GITHUB_CLIENT_ID,
+    GOOGLE_CLIENT_ID,
+    TELEGRAM_BOT_NAME,
+    TELEGRAM_BOT_ID,
+};

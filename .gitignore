@@ -1,0 +1,61 @@
+# dependencies
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# Node.js dependencies  
+node_modules/  
+
+# Python virtual environment  
+venv/  
+
+# Media & Uploads  
+media/  
+profile_pictures/  
+
+# IDE & Editor Settings  
+.idea/  
+.vscode/  
+*.iml  
+
+# Logs & Debugging Files  
+*.log  
+*.log.*  
+*.bak  
+npm-debug.log  
+yarn-debug.log  
+yarn-error.log  
+
+# Databases & Dumps  
+*.sqlite3  
+*.db  
+*.dump.rdb
+
+# Environment Variables  
+.env
+.env.local
+
+# Python Cache & Compiled Files  
+__pycache__/  
+*.py[cod]  
+*.pyo  
+
+*.txt
+*.rdb
+
+*.prettierrc

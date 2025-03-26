@@ -1,0 +1,76 @@
+.callout {
+    border-radius: var(--bs-border-radius);
+    position: relative;
+    transition: all 0.3s ease;
+
+    &.active {
+        background: rgba(0, 0, 0, 0.15);
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: calc(25%);
+            height: 50%;
+            width: 4px;
+            background-color: var(--bs-primary);
+            border-radius: 25rem;
+            transition: all 0.3s ease;
+        }
+
+        animation: jumpEffect 0.3s ease;
+    }
+
+    &:hover {
+        background: rgb(0 0 0 / 10%);
+        color: var(--bs-emphasis-color);
+    }
+}
+
+@keyframes jumpEffect {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@each $name, $color in 
+    (default, #777), 
+    (primary, var(--bs-primary)), 
+    (success, var(--bs-success)),
+    (danger, var(--bs-danger)), 
+    (warning, var(--bs-warning)), 
+    (info, var(--bs-info)),
+{
+    .callout-#{$name} {
+
+        &.active {
+            background: rgba(0, 0, 0, 0.15);
+            position: relative;
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: calc(25%);
+                height: 50%;
+                width: 4px;
+                background-color: $color;
+                border-radius: 25rem;
+                transition: all 0.3s ease;
+            }
+
+            animation: jumpEffect 0.3s ease;
+        }
+
+        &:hover {
+            background: rgb(0 0 0 / 10%);
+            color: var(--bs-emphasis-color);
+        }
+    }
+}

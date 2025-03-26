@@ -1,0 +1,117 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-24 10:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\app\email_confirmation.py:14
+msgid "your_code_confirmation"
+msgstr "Ваш код подтверждения для смены пароля"
+
+#: .\app\email_confirmation.py:19
+msgid "welcome"
+msgstr "Здравствуйте!"
+
+#: .\app\email_confirmation.py:22
+msgid "text_code_is_valid_for_a_short_amount_time"
+msgstr ""
+"Этот код действителен в течение 10 минут. Если вы не запрашивали этот код, "
+"просто проигнорируйте это письмо."
+
+#: .\app\email_confirmation.py:23
+msgid "rights_reserved"
+msgstr "2024 OmniSphere. Все права защищены."
+
+#: .\app\serializers\auth.py:20
+#| msgid "Both fields are required."
+msgid "This field is required."
+msgstr "Оба поля обязательны"
+
+#: .\app\serializers\auth.py:22
+#| msgid "email_is_already_in_use"
+msgid "Email is already in use."
+msgstr "Эта почта уже используется"
+
+#: .\app\serializers\auth.py:40
+msgid "Both fields are required."
+msgstr "Оба поля обязательны"
+
+#: .\app\serializers\auth.py:44
+msgid "Invalid email or password."
+msgstr "Пароль или почта неверны"
+
+#: .\app\serializers\auth.py:69
+msgid "User with this email does not exist."
+msgstr "Пользователь с такой почтой не существует"
+
+#: .\app\serializers\auth.py:73
+msgid "Confirmation code not found."
+msgstr "Код подтверждения не найден"
+
+#: .\app\serializers\auth.py:76
+msgid "The confirmation code has expired."
+msgstr "Код подтверждения просрочен"
+
+#: .\app\serializers\auth.py:79
+msgid "Verification code does not match."
+msgstr "Код подтверждения не верный"
+
+#: .\app\serializers\auth.py:82 .\app\serializers\update_account.py:54
+msgid "New password cannot be the same as the old password."
+msgstr "Новый пароль не может быть таким же как и старый"
+
+#: .\app\serializers\update_account.py:30
+#| msgid "email_is_already_in_use"
+msgid "This email is already in use."
+msgstr "Эта почта уже используется"
+
+#: .\app\serializers\update_account.py:57
+msgid "Incorrect current password."
+msgstr "Текущий пароль не верный"
+
+#: .\app\views\auth.py:97
+msgid "Confirmation code sent to your email"
+msgstr "Код подтверждения отправлен Вам на почту"
+
+#: .\app\views\auth.py:101
+msgid "User with this email does not exist"
+msgstr "Пользователь с такой почтой не существует"
+
+#: .\app\views\update_account.py:37
+msgid "Your account has been updated!"
+msgstr "Аккаунт был обновлен!"
+
+#: .\app\views\update_account.py:63
+msgid "Your password has been changed successfully!"
+msgstr "Ваш пароль был успешно изменен!"
+
+#: .\app\views\update_account.py:81
+msgid "User profile was not found"
+msgstr "Профиль пользователя не был найден"
+
+#: .\app\views\update_account.py:112
+msgid "You don't have permission to access this profile"
+msgstr "У вас нет прав чтобы просматривать данный профиль"
+
+#~| msgid "account_updated_successfully"
+#~ msgid "profile_updated_successfully"
+#~ msgstr "Профиль обновлен успешно!"
+
+#~| msgid "account_updated_successfully"
+#~ msgid "Profile updated successfully!"
+#~ msgstr "Профиль обновлен успешно!"

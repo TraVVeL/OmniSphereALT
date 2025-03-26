@@ -1,0 +1,26 @@
+.react-tel-input .form-control {
+    background: var(--bs-bg-dark);
+    border: 1px solid var(--bs-border-color);
+    color: var(--bs-body-color);
+}
+
+.react-tel-input .form-control:focus {
+    background-color: var(--bs-bg-dark);
+}
+
+.react-tel-input .country-list {
+	box-shadow: var(--bs-box-shadow);
+	background-color: var(--bs-body-bg);
+    width: 300px;
+    max-height: 220px;
+    overflow-y: scroll;
+    border-radius: 7px;
+}
+
+.react-tel-input .country-list .country:hover {
+	background-color: var(--bs-link-color);
+}
+
+.react-tel-input .country-list .country.highlight {
+    background-color: var(--bs-link-hover-color);
+}
