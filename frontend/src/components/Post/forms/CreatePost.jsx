@@ -144,7 +144,6 @@ export const CreatePost = () => {
 
             const result = await response.json();
             setMessage('Пост успешно сохранен!');
-            console.log('Успешно отправлено:', result);
 
         } catch (error) {
             console.error('Ошибка при отправке:', error);

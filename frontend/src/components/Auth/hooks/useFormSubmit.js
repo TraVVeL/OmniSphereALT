@@ -11,7 +11,7 @@ const useFormSubmit = (url, onSuccess, method = 'POST', headers = {}) => {
         async (values, { setSubmitting }) => {
             setError('');
             setSuccess('');
-
+            console.log(values);
             try {
                 const { data } = await api({
                     url,
@@ -28,13 +28,12 @@ const useFormSubmit = (url, onSuccess, method = 'POST', headers = {}) => {
 
                 setSuccess(data.message || t('operation_successful'));
                 onSuccess(data);
+                console.log(data);
             } catch (err) {
-                console.log('Ошибка с сервера:', err.response);
-
                 if (err.response?.data?.errors) {
                     const errors = err.response.data.errors;
                     let errorMessage = '';
-
+                    
                     const extractErrorMessages = (obj) => {
                         for (const [value] of Object.entries(obj)) {
                             if (Array.isArray(value)) {

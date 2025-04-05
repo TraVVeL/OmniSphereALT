@@ -48,7 +48,6 @@ const GithubAuthButton = ({ handleClose }) => {
             }
             handleGithubLogin(data);
         } catch (error) {
-            console.log(error);
         }
     };
 

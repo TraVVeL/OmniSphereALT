@@ -74,10 +74,11 @@ function Header() {
                                 className="d-flex align-items-center link-body-emphasis text-decoration-none p-0 border-0"
                             >
                                 <span className="d-none d-md-inline fw-bold pe-2">{auth.username}</span>
-                                <UserAvatar 
-                                    src={`${process.env.REACT_APP_BACKEND_URL}${auth.profile_picture}`} 
-                                    size={32} 
-                                />
+                                
+                            <UserAvatar 
+                                src={auth.profile_picture} 
+                                size={32} 
+                            />
                             </Dropdown.Toggle>
                             <Dropdown.Menu>
                                 <Dropdown.Item as={NavLink} to={`/profile/${auth.username}`}>
@@ -110,7 +111,7 @@ function Header() {
                             <>
                                 <div className='d-flex flex-column align-items-center mb-3'>
                                     <UserAvatar 
-                                        src={`${process.env.REACT_APP_BACKEND_URL}${auth.profile_picture}`} 
+                                        src={auth.profile_picture} 
                                         size={64} 
                                     />
                                     <h5 className="mb-2"><strong>{auth.username}</strong></h5>

@@ -59,9 +59,9 @@ const Account = () => {
                 style={{ top: '85px' }}
             >
                 <div className="d-flex align-items-center mb-3">
-                    <UserAvatar
-                        src={`${process.env.REACT_APP_BACKEND_URL}${auth.profile_picture}`}
-                        size={56}
+                    <UserAvatar 
+                        src={auth.profile_picture} 
+                        size={56} 
                     />
 
                     <div className="ms-2 col-lg-8 text-truncate">

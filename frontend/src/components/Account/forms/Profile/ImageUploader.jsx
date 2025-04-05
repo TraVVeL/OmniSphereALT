@@ -1,5 +1,7 @@
 import { UserAvatar } from '../../../../common';
 
+// TODO: REFACTOR THIS SHIT 
+
 const ImageUploader = ({
     preview,
     getRootProps,
@@ -20,8 +22,8 @@ const ImageUploader = ({
         }}
     >
         <input {...getInputProps()} />
-        <UserAvatar src={preview} size={80} className="mb-2" />
 
+        <UserAvatar src={preview} size={80} className="mb-2" />
         <p className="text-muted">
             {isDragActive
                 ? t('drop_your_photo_here')

@@ -26,7 +26,6 @@ const ProfileForm = ({
     const validateUsername = useValidateUsername(auth.username);
     const userProfile = auth.profile || {};
     const setFieldValueRef = useRef(null);
-
     const initialValues = useMemo(
         () => ({
             username: auth.username || '',
@@ -114,7 +113,7 @@ const ProfileForm = ({
                 const handleReset = (e) => {
                     e.preventDefault();
                     resetForm();
-                    setPreview(`${process.env.REACT_APP_BACKEND_URL}${auth.profile_picture}`); 
+                    setPreview(auth.profile_picture ? auth.profile_picture : null); 
                 };
                 return (
                     <FormikForm>

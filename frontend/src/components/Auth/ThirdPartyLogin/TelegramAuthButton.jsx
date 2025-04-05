@@ -56,7 +56,6 @@ function TelegramAuthButton({ handleClose }) {
                     auth_data: user,
                 },
             );
-            console.log(response);
             login(response.data);
             handleClose();
         } catch (error) {

@@ -7,90 +7,121 @@ import { useGoogleLogin } from '@react-oauth/google';
 import PopupWindow from '../../../Auth/ThirdPartyLogin/github/PopupWindow';
 import { toQuery } from '../../../Auth/ThirdPartyLogin/github/utils';
 
-const ServiceConnectionCard = ({ 
-    serviceName, 
+const ServiceConnectionCard = ({
+    serviceName,
     serviceIcon,
     onError,
-    onSuccess
+    onSuccess,
 }) => {
     const { t, i18n } = useTranslation();
     const { auth } = useContext(AuthContext);
     const [loading, setLoading] = useState(false);
     const [isConnected, setIsConnected] = useState(false);
-    
+
     const serviceKey = serviceName.toLowerCase();
     const apiBaseUrl = `${process.env.REACT_APP_BACKEND_URL}/${i18n.language}/api/account`;
     const authHeader = { Authorization: `Bearer ${auth.access}` };
-    
-    const handleError = useCallback((errorMessage) => {
-        onError && onError(errorMessage);
-        setLoading(false);
-    }, [onError]);
 
-    const handleSuccess = useCallback((message, connected) => {
-        onSuccess && onSuccess(message);
-        setIsConnected(connected);
-        setLoading(false);
-    }, [onSuccess]);
+    const handleError = useCallback(
+        (errorMessage) => {
+            onError && onError(errorMessage);
+            setLoading(false);
+        },
+        [onError],
+    );
+
+    const handleSuccess = useCallback(
+        (message, connected) => {
+            onSuccess && onSuccess(message);
+            setIsConnected(connected);
+            setLoading(false);
+        },
+        [onSuccess],
+    );
 
     const { handleSubmit: checkConnectionStatus } = useFormSubmit(
         `${apiBaseUrl}/linked-account/`,
         (responseData) => {
+            console.log(responseData);
             if (responseData.status === 'success' && responseData.data) {
-                const serviceStatusKey = `${serviceKey}_id`;
-                setIsConnected(responseData.data[serviceStatusKey] === true);
+                setIsConnected(!!responseData.data.connected_services[serviceKey]);
             }
             setLoading(false);
         },
         'GET',
-        authHeader
+        authHeader,
     );
 
-    const { handleSubmit: submitLinkAccount } = useFormSubmit(
+    const { handleSubmit: submitLinkAccount, error: linkError } = useFormSubmit(
         `${apiBaseUrl}/link-account/`,
         (data) => {
-            handleSuccess(data.message || t('account_successfully_connected'), true);
+            console.log(data);
+            handleSuccess(
+                data.message || t('account_successfully_connected'),
+                true,
+            );
         },
         'POST',
-        authHeader
+        authHeader,
+        (error) => {
+            handleError(error?.message || t('connection_failed'));
+        }
     );
 
     const { handleSubmit: submitUnlinkAccount } = useFormSubmit(
         `${apiBaseUrl}/unlink-account/`,
         (data) => {
-            console.log(data)
-            handleSuccess(data.message || t('account_successfully_disconnected'), false);
+            handleSuccess(
+                data.message || t('account_successfully_disconnected'),
+                false,
+            );
         },
         'POST',
-        authHeader
+        authHeader,
     );
 
-    const linkAccount = useCallback(async (service, data) => {
-        setLoading(true);
-        await submitLinkAccount(
-            { service, ...data },
-            { setSubmitting: () => {} }
-        );
-    }, [submitLinkAccount]);
+    const linkAccount = useCallback(
+        async (service, data) => {
+            await submitLinkAccount(
+                {
+                    service: service,
+                    ...data,
+                },
+                { setSubmitting: () => {} },
+            );
+        },
+        [submitLinkAccount],
+    );
 
     const unlinkAccount = useCallback(async () => {
         setLoading(true);
+        handleError(null);
+        handleSuccess(null);
         await submitUnlinkAccount(
             { service: serviceKey },
-            { setSubmitting: () => {} }
+            { setSubmitting: () => {} },
         );
-    }, [submitUnlinkAccount, serviceKey]);
+    }, [submitUnlinkAccount, serviceKey, handleError, handleSuccess]);
 
     const handleGoogleConnect = useGoogleLogin({
         onSuccess: (tokenResponse) => {
             linkAccount('google', { access_token: tokenResponse.access_token });
         },
-        onError: () => handleError(t('google_connection_failed'))
+        onError: () => handleError(t('google_connection_failed')),
     });
-    
+
+    useEffect(() => {
+        if (linkError) {
+            handleError(linkError);
+        }
+    }, [linkError, handleError]);
+
     const handleGithubConnect = useCallback(async () => {
-        const search = toQuery({ client_id: process.env.REACT_APP_GITHUB_CLIENT_ID });
-        const width = 600, height = 600;
+        const search = toQuery({
+            client_id: process.env.REACT_APP_GITHUB_CLIENT_ID,
+        });
+        const width = 600,
+            height = 600;
         const left = (window.innerWidth - width) / 2;
         const top = (window.innerHeight - height) / 2;
 
@@ -100,18 +131,18 @@ const ServiceConnectionCard = ({
                 `https://github.com/login/oauth/authorize?${search}`,
                 { height, width, left, top },
             );
-            
+
             const data = await newPopup;
             if (!data.code) {
                 throw new Error("'code' not found");
             }
-            
+
             linkAccount('github', { code: data.code });
         } catch (error) {
             handleError(t('gitHub_connection_failed'));
         }
     }, [t, linkAccount, handleError]);
-    
+
     const handleTelegramConnect = useCallback(() => {
         window.Telegram?.Login?.auth(
             { bot_id: process.env.REACT_APP_TELEGRAM_BOT_ID },
@@ -150,31 +181,35 @@ const ServiceConnectionCard = ({
             setLoading(false);
         }
     }, [auth?.access, serviceKey]);
-    
+
     useEffect(() => {
         const refreshConnectionStatus = () => {
             if (auth?.access) {
                 checkConnectionStatus({}, { setSubmitting: () => {} });
             }
         };
-        
-        const events = ['auth-updated', 'token-refreshed', 'services-connection-updated'];
-        
-        events.forEach(event => {
+
+        const events = [
+            'users-updated',
+            'token-refreshed',
+            'oauth_services-connection-updated',
+        ];
+
+        events.forEach((event) => {
             window.addEventListener(event, refreshConnectionStatus);
         });
-        
+
         return () => {
-            events.forEach(event => {
+            events.forEach((event) => {
                 window.removeEventListener(event, refreshConnectionStatus);
             });
         };
     }, [auth?.access]);
-    
+
     return (
         <Card className="mb-3 shadow-sm">
             <Card.Body>
-                <Row className='d-flex justify-content-center align-items-center'>
+                <Row className="d-flex justify-content-center align-items-center">
                     <Col className="d-flex align-items-center">
                         {serviceIcon && (
                             <span className="me-3">{serviceIcon}</span>
@@ -183,21 +218,28 @@ const ServiceConnectionCard = ({
                             <div className="d-flex align-items-center">
                                 <strong>{serviceName}</strong>
                                 {isConnected && (
-                                    <Badge bg="success" className="ms-2">{t('connected')}</Badge>
+                                    <Badge bg="success" className="ms-2">
+                                        {t('connected')}
+                                    </Badge>
                                 )}
                             </div>
                             <small className="text-muted">
-                                {isConnected 
-                                    ? t('your_account_is_connected_with') + ` ${serviceName}`
-                                    : t('connect_your_account_with') + ` ${serviceName}`
-                                }
+                                {isConnected
+                                    ? t('your_account_is_connected_with') +
+                                      ` ${serviceName}`
+                                    : t('connect_your_account_with') +
+                                      ` ${serviceName}`}
                             </small>
                         </div>
                     </Col>
                     <Col xs="auto">
                         {loading ? (
                             <Button variant="outline-primary" disabled>
-                                <Spinner animation="border" size="sm" className="me-2" />
+                                <Spinner
+                                    animation="border"
+                                    size="sm"
+                                    className="me-2"
+                                />
                                 {t('processing...')}
                             </Button>
                         ) : isConnected ? (
@@ -223,7 +265,7 @@ const ServiceConnectionCard = ({
 };
 
 export const notifyConnectionStatusChange = () => {
-    window.dispatchEvent(new Event('services-connection-updated'));
+    window.dispatchEvent(new Event('oauth_services-connection-updated'));
 };
 
 export default ServiceConnectionCard;

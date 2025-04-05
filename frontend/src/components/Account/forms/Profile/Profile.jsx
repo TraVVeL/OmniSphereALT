@@ -13,7 +13,7 @@ const Profile = () => {
     const [profileData, setProfileData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const isLoaded = useRef(false);
-    const [preview, setPreview] = useState(`${process.env.REACT_APP_BACKEND_URL}${auth.profile_picture}`);
+    const [preview, setPreview] = useState(auth.profile_picture);
 
     const validationSchema = useMemo(
         () => getValidationSchemas(t).updateUserProfileValidationSchema, [t],
@@ -23,6 +23,7 @@ const Profile = () => {
     const { handleSubmit: handleSubmitProfile, error: submitErrorProfile } = useFormSubmit(
         `${process.env.REACT_APP_BACKEND_URL}/${i18n.language}/api/account/profile/user/${auth?.username}/`,
         (data) => {
+            console.log('get', data);
             setProfileData(data);
             setIsLoading(false);
         },
@@ -33,6 +34,7 @@ const Profile = () => {
     const { handleSubmit, error: submitError, success } = useFormSubmit(
         `${process.env.REACT_APP_BACKEND_URL}/${i18n.language}/api/account/profile/`,
         (data) => {
+            console.log(data);
             updateProfile(data.user);
             setProfileData(data.user);
         },

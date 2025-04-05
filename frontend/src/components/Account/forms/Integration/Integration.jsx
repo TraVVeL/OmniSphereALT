@@ -48,8 +48,8 @@ const Integration = () => {
                     </p>
                 </div>
                 <Card.Body className="p-lg-5">
-                    {success && <ToastMessage message={success} variant="success" />}
                     {error && <ToastMessage message={error} variant="danger" />}
+                    {success && <ToastMessage message={success} variant="success" />}
 
                     <ServiceConnectionCard
                         serviceName="Google"

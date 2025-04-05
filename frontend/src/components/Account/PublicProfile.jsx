@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Card, Spinner, Col, Row } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
-import useFetchData from '../Auth/hooks/UseFetchData';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { ToastMessage } from '../../common/Toast';
-import '../../assets/styles/mediaProfile.css';
 
+import useFetchData from '../Auth/hooks/UseFetchData';
+import AuthContext from '../../contexts/AuthContext';
+import { ToastMessage } from '../../common/Toast';
+import { UserAvatar } from '../../common';
+import '../../assets/styles/mediaProfile.css';
 import {
     GoogleSvgIcon,
     TelegramSvgIcon,
@@ -44,6 +45,7 @@ const ProfileField = ({ label, value }) => (
 );
 
 const PublicProfile = () => {
+    const { auth } = useContext(AuthContext);
     const { username } = useParams();
     const { t, i18n } = useTranslation();
     const backendUrl = process.env.REACT_APP_BACKEND_URL;
@@ -65,7 +67,7 @@ const PublicProfile = () => {
         username: profileUsername,
         first_name = `${t('first_name')} ${t('is_not_provided')}`,
         last_name = `${t('last_name')} ${t('is_not_provided')}`,
-        profile_picture,
+        profile_picture = null,
     } = data;
     
     const { 
@@ -103,8 +105,6 @@ const PublicProfile = () => {
         { name: 'HeadHunter', icon: <HeadHunterSvgIcon width={36} height={36} />, link: head_hunter_link },
     ].filter(item => item.link);
 
-    const profilePicturePath = profile_picture || '/media/profile_pictures/default_profile_picture.png';
-
     return (
         <>
             <Card className="mx-auto mt-3 mb-3 shadow border-0">
@@ -114,11 +114,17 @@ const PublicProfile = () => {
                     <div
                         className="img-thumbnail position-absolute translate-middle-y rounded-circle overflow-hidden ms-0 ms-sm-3 top-100 border-0 p-2"
                     >
-                        <img
+                        {/* <img
                             src={`${backendUrl}${profilePicturePath}`}
                             alt="Profile"
                             className="img-fluid rounded-circle"
                             style={{width : '120px', height : '120px', objectFit : 'cover'}}
+                        /> */}
+                        <UserAvatar 
+                            src={profile_picture} 
+                            size={120} 
+                            className="img-fluid rounded-circle"
+                            style={{objectFit : 'cover'}}
                         />
                     </div>
                 </div>

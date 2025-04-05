@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'drf_yasg',
 
-    # Social auth
+    # Social users
     'django.contrib.sites',
     'allauth',
     # 'allauth.account',
@@ -54,7 +54,10 @@ INSTALLED_APPS = [
     # 'allauth.socialaccount.providers.google',
 
     # Local apps
-    'app',
+    # 'app',
+    'users',
+    'posts',
+    'users_profile',
 ]
 
 # Middleware
@@ -167,9 +170,25 @@ LOCALE_PATHS = [
 ]
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = 'static/'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_URL = ''
+MEDIA_ROOT = ''
+
+
+# Storage settings
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+AWS_ACCESS_KEY_ID = config("MINIO_ROOT_USER")
+AWS_SECRET_ACCESS_KEY = config("MINIO_ROOT_PASSWORD")
+AWS_STORAGE_BUCKET_NAME = config("MINIO_BUCKET_NAME")
+AWS_S3_ENDPOINT_URL = config("AWS_S3_ENDPOINT_URL")
+AWS_S3_DOMAIN = config("DOMAIN_URL")
+AWS_S3_ADDRESSING_STYLE = "path"
+AWS_QUERYSTRING_AUTH = False
+AWS_S3_FILE_OVERWRITE = False
+AWS_S3_REGION_NAME = "us-east-1"
+AWS_S3_CUSTOM_DOMAIN = f"{AWS_S3_DOMAIN}/{AWS_STORAGE_BUCKET_NAME}"
+
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -205,9 +224,16 @@ CELERY_BROKER_URL = config('CELERY_BROKER_URL', default='redis://redis:6379/0')
 CELERY_RESULT_BACKEND = config('CELERY_RESULT_BACKEND', default='redis://redis:6379/0')
 
 # Extended user model
-AUTH_USER_MODEL = 'app.ExtendedUser'
+AUTH_USER_MODEL = 'users.ExtendedUser'
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
+# Social links to retrieve user's info
+SOCIAL_ACCOUNT_GOOGLE_USER_INFO = config("SOCIAL_ACCOUNT_GOOGLE_USER_INFO")
+SOCIAL_AUTH_GITHUB_USER_URL = config("SOCIAL_AUTH_GITHUB_USER_URL")
+SOCIAL_AUTH_GITHUB_USER_EMAIL = config("SOCIAL_AUTH_GITHUB_USER_EMAIL")
+SOCIAL_AUTH_GITHUB_USER_TOKEN = config("SOCIAL_AUTH_GITHUB_USER_TOKEN")
+
 
 # CUSTOM TEST RUNER COMMAND
 TEST_RUNNER = 'app.test_runner.CustomDiscoverRunner'

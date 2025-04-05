@@ -1,3 +1,5 @@
+export {default as DefaultUserIcon } from './DefaultIcons/DefaultUserIcon'
+
 export { default as SuccessSvgIcon } from './ToastSvgIcons/SuccessSvgIcon'
 export { default as InfoSvgIcon } from './ToastSvgIcons/InfoSvgIcon';
 export { default as WarningSvgIcon } from './ToastSvgIcons/WarningSvgIcon';
