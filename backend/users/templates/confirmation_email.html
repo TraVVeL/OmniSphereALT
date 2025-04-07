@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            max-width: 560px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #dddddd;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #333333;
+        }
+        .content {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .content p {
+            font-size: 18px;
+            color: #555555;
+            margin: 10px 0;
+        }
+        .code {
+            display: inline-block;
+            font-size: 24px;
+            color: #007bff;
+            background-color: #d7d7d7;
+            padding: 10px 20px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .footer {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #dddddd;
+            color: #999999;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <p>{{ welcome }}, {{ username }}!</p>
+            <div class="code">{{ confirmation_code }}</div>
+            <p>{{ text_to_user }}</p>
+        </div>
+        <div class="footer">
+            <p>&copy; {{ rights_reserved }}</p>
+        </div>
+    </div>
+</body>
+</html>

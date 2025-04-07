@@ -1,0 +1,15 @@
+.bg-cover {
+    height: 200px;
+    background-image: url('https://cdn1.ozone.ru/s3/multimedia-c/6305751072.jpg');
+    background-size: cover;
+    margin-bottom: 5rem;
+    background-position: center;
+}
+
+
+@media (max-width: 576px) {
+    .img-thumbnail {
+        left: 50%; 
+        transform: translate(-50%, -50%)!important; 
+    }
+}

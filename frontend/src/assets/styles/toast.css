@@ -1,0 +1,53 @@
+.toast-container {
+    position: fixed !important;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1060;
+}
+
+.custom-toast .toast-progress {
+    position: relative;
+    overflow: hidden;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    border-bottom-right-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+}
+
+.custom-toast .toast-progress:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;    
+    background-color: #ffc107;
+}
+
+.toast-success .toast-progress:before {
+    background-color: var(--bs-green);
+}
+
+.toast-info .toast-progress:before {
+    background-color: var(--bs-cyan);
+}
+
+.toast-warning .toast-progress:before {
+    background-color: var(--bs-yellow);
+}
+
+.toast-danger .toast-progress:before {
+    background-color: var(--bs-red);
+}
+
+.toast-progress.active:before {
+    animation: toast-progress 10s linear forwards;
+}
+
+@keyframes toast-progress {
+    100% {
+        right: 100%;
+    }
+}

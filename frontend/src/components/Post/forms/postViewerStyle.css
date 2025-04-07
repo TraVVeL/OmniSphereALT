@@ -1,0 +1,29 @@
+.editor-style-container {
+    --crepe-color-background: var(--bs-body-bg);
+    --crepe-color-on-background: var(--bs-emphasis-color);
+    --crepe-color-surface: var(--bs-tertiary-bg);;
+    --crepe-color-surface-low: var(--bs-body-bg);
+    --crepe-color-on-surface: var(--bs-emphasis-color);
+    --crepe-color-on-surface-variant: var(--bs-dark-text-emphasis);
+    --crepe-color-outline: #757575;
+    --crepe-color-primary: #b5b5b5;
+    --crepe-color-secondary: #4d4d4d;
+    --crepe-color-on-secondary: #d6d6d6;
+    --crepe-color-inverse: #e5e5e5;
+    --crepe-color-on-inverse: #2a2a2a;
+    --crepe-color-inline-code: var(--bs-danger);
+    --crepe-color-error: var(--bs-danger);
+    --crepe-color-hover: var(--bs-tertiary-bg);
+    --crepe-color-selected: var(--bs-border-color-translucent);
+    --crepe-color-inline-area: var(--bs-border-color);
+    --crepe-font-title: var(--bs-font-sans-serif); /* Шрифт для заголовков */
+    --crepe-font-default: var(--bs-font-sans-serif); /* Шрифт по умолчанию */
+    --crepe-font-code: var(--bs-font-monospace); /* Шрифт для кода */
+    --crepe-shadow-1: var(--bs-box-shadow-sm);
+    --crepe-shadow-2: var(--bs-box-shadow);
+}
+
+pre {
+    background: var(--crepe-color-surface);
+    padding: 20px;
+}
